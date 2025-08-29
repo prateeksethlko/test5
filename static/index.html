@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zurich - Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header with Logo Image -->
+    <header class="header">
+        <div class="logo">
+            <img src="logo.png" alt="Zurich Logo" class="logo-img" />
+        </div>
+        <button id="hamburgerToggle" class="hamburger-toggle">☰</button>
+    </header>
+
+    <!-- Hamburger Slide-out Menu (Only How To Use) -->
+    <div class="hamburger-menu" id="hamburgerMenu">
+        <div class="hamburger-content">
+            <div class="hamburger-header">
+                <h3>How To Use</h3>
+                <button class="close-btn" id="closeHamburger">✕</button>
+            </div>
+            
+            <!-- How To Use Section Only -->
+            <div class="menu-section">
+                <ul class="menu-list">
+                    <li><a href="#">CHATBot Guide</a></li>
+                    <li><a href="#">Tool B Explained</a></li>
+                    <li><a href="#">MyAccess Explained</a></li>
+                    <li><a href="#">PAM Explained</a></li>
+                    <li><a href="#">PAR Explained</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="layout">
+        <!-- Clean Sidebar - Only Resources & Managers -->
+        <aside class="sidebar" id="sidebar">
+            <!-- Resources Available Section -->
+            <div class="sidebar-section">
+                <div class="sidebar-heading">Resources Available</div>
+                <ul class="resources-list">
+                    <li>
+                        <a href="#" class="resource-link">
+                            <strong>Informatica:</strong> View all Resources for Informatica Users
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="resource-link">
+                            <strong>YellowBrick:</strong> View all Resources for YB Users
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="resource-link">
+                            <strong>DB2:</strong> View all Resources for DB2 Users
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="resource-link">
+                            <strong>SQLServer:</strong> View all Resources for SQLServer Users
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="resource-link">
+                            <strong>DataLake:</strong> View all Resources for DataLake Users
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Zurich Managers Section -->
+            <div class="sidebar-section">
+                <div class="sidebar-heading">Zurich Managers</div>
+                <ul class="managers-list">
+                    <li><a href="#" class="manager-link">Beeline</a></li>
+                    <li><a href="#" class="manager-link">New Laptop Request</a></li>
+                    <li><a href="#" class="manager-link">New AVD Request</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navigation Bar with All Links Including Dropdowns -->
+            <div class="top-nav-bar">
+                <a href="#" class="nav-link">Tool B</a>
+                <a href="#" class="nav-link">MyAccess</a>
+                <a href="#" class="nav-link">PAM</a>
+                <a href="#" class="nav-link">PAR</a>
+                
+                <!-- Software Downloads Dropdown -->
+                <div class="dropdown">
+                    <button class="nav-link dropdown-btn" id="softwareBtn">Software Downloads ▾</button>
+                    <div class="dropdown-content" id="softwareDropdown">
+                        <a href="#">Zurich Portal – S/W Downloads</a>
+                        <a href="#">Application Center</a>
+                        <a href="#">Software Repository</a>
+                    </div>
+                </div>
+                
+                <!-- Support Dropdown -->
+                <div class="dropdown">
+                    <button class="nav-link dropdown-btn" id="supportBtn">Support ▾</button>
+                    <div class="dropdown-content" id="supportDropdown">
+                        <a href="#">IT Help Desk</a>
+                        <a href="#">Access Request Portal</a>
+                        <a href="#">Documentation</a>
+                        <a href="#">Knowledge Base</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chatbot Interface -->
+            <section class="chatbot-card">
+                <div class="chat-header">
+                    <h2>Assistant</h2>
+                    <p>Get Help with you Queries</p>
+                </div>
+                
+                <div id="chat-window" class="chat-window">
+                    <div class="chat-message assistant welcome-message">
+                        <div class="chat-ai">Assistant</div>
+                        <div class="chat-content">Hello! I'm your Assistant. I can help you with:
+• Access group information
+• Repository permissions
+• New user setup
+• Production access policies
+
+How can I help you today?</div>
+                    </div>
+                </div>
+                
+                <form id="chat-form" class="chat-form">
+                    <div class="input-container">
+                        <input type="text" id="chat-input" placeholder="Ask me about Informatica access, repositories, or myAccess groups..." autocomplete="off" required>
+                        <button type="submit" id="send-button" aria-label="Send message">Send</button>
+                    </div>
+                </form>
+                
+                <div id="chat-error" class="chat-error" style="display: none;"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

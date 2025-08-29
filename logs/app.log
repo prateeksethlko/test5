@@ -1,0 +1,20 @@
+2025-08-27 12:49:46,205 - app - INFO - Starting application in production mode
+2025-08-27 12:49:46,672 - app - INFO - Application initialized successfully
+2025-08-27 12:49:46,711 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.9:5000
+2025-08-27 12:49:46,712 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-08-27 12:49:51,613 - werkzeug - ERROR - 192.168.1.9 - - [27/Aug/2025 12:49:51] code 400, message Bad request version ('ºº\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06sZZ\x00\x00\x00#\x00\x00\x00')
+2025-08-27 12:49:51,613 - werkzeug - INFO - 192.168.1.9 - - [27/Aug/2025 12:49:51] "[31m[1m\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03òªC¿-y\x81¤\x07DKW£g\x05Ý\x07zì\x10ß·\x81rÏ*ÃÍ\x8bü§d Ä\x96óéÝ5Ê\x12À1\x1aV®Ðû\x06§_ó\x1b¯j\x14%ì\x1c\x93\x99\x99ff\x06\x00 ºº\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06sZZ\x00\x00\x00#\x00\x00\x00[0m" 400 -
+2025-08-27 12:49:51,627 - werkzeug - ERROR - 192.168.1.9 - - [27/Aug/2025 12:49:51] code 400, message Bad request version ('W\x14±µ®ÞË\x87Hz')
+2025-08-27 12:49:51,627 - werkzeug - INFO - 192.168.1.9 - - [27/Aug/2025 12:49:51] "[31m[1m\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03/(\x05K\x8d¿Ç\x93*hd/Õ\x0d\x8aÆLöÈ\x1e\x9cÉjêì«ÿ\x9fV¢\x10· Q\x1b[P\x8b\x05*7v£\x16\x90m\x9ah\x16/åH\x00\x87åû.(z \x94´¾ÿy\x00 jj\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06sÊÊ\x00\x00þ\x0d\x00ú\x00\x00\x01\x00\x01\x88\x00 \x02,\x96.Üð\x1epÌZ\x89Ç\x1eÑ1\x07êÙQ\x07\x917\x9bj¥\x86\x13ìsÛw\x0c\x00Ð\x81\x84;JaYÅðBþ\x97ÿ\x0eæ\x81&h^^\x1a%Ó\\½[úÀHµfâÏ5,ò\x14Cÿ\x08M\x08ÙÊæ³lÎ:eE\x1e\x0fDÂ\x01Ø\x13¤ß\x0b\x81ß0R\x8eÜ\x8dá\x1e(\x1bßð,\x11'î7\x9b\x89|ç\x1b05\x0fÒ¬}ù5Fé£Wà\x9a\x86$\x15¦ßQ\x18±Æ\x8a³á¬ü\x1a\x90ëC¨ì¥«\x88ö\x16ÿ4¾Ç~Ó\x8a\x0ddy#Ææó W\x14±µ®ÞË\x87Hz[0m" 400 -
+2025-08-27 12:49:53,114 - werkzeug - INFO - 192.168.1.9 - - [27/Aug/2025 12:49:53] "GET / HTTP/1.1" 200 -
+2025-08-27 12:49:53,342 - werkzeug - INFO - 192.168.1.9 - - [27/Aug/2025 12:49:53] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-08-27 12:49:59,207 - werkzeug - INFO - 192.168.1.9 - - [27/Aug/2025 12:49:59] "[36mGET / HTTP/1.1[0m" 304 -
+2025-08-27 12:49:59,797 - werkzeug - INFO - 192.168.1.9 - - [27/Aug/2025 12:49:59] "[36mGET / HTTP/1.1[0m" 304 -
+2025-08-27 12:50:24,865 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2025 12:50:24] "GET / HTTP/1.1" 200 -
+2025-08-27 12:50:27,705 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2025 12:50:27] "[36mGET / HTTP/1.1[0m" 304 -
+2025-08-27 12:50:28,240 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2025 12:50:28] "[36mGET / HTTP/1.1[0m" 304 -
+2025-08-27 12:50:28,609 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2025 12:50:28] "[36mGET / HTTP/1.1[0m" 304 -
+2025-08-27 12:50:28,821 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2025 12:50:28] "[36mGET / HTTP/1.1[0m" 304 -
