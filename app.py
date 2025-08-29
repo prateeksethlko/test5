@@ -43,7 +43,8 @@ def create_app(config_name):
         A simple route that returns a greeting, indicating the current
         environment the Flask app is running in.
         """
-        return f"Hello from Flask app in **{config_name}** environment!"
+        current_env = app.config.get('FLASK_ENV', 'default') # Access FLASK_ENV from app.config
+        return f"Hello from Flask app in **{current_env}** environment! 🎉"
 
     # You can add more routes directly here or organize them into blueprints
     # Example of another route:
@@ -58,26 +59,37 @@ def create_app(config_name):
 
     return app
 
-# --- Application Initialization ---
-# This block attempts to create the Flask application.
-# It uses the 'FLASK_ENV' environment variable to determine which
-# configuration to load from 'config.py'. If not set, it defaults to 'production'.
-try:
-    # 'app' is the WSGI callable that Gunicorn will look for.
-    # It's an instance of the Flask application.
-    app = create_app(os.environ.get('FLASK_ENV', 'production'))
-except Exception as e:
-    # If the application fails to create, log the error and exit.
-    # This is crucial for debugging startup issues in deployment environments.
-    logging.error(f"Failed to create application: {e}")
-    exit(1)
+# --- Application Initialization for Gunicorn (Modified) ---
+# When using an application factory, it's often more reliable to have Gunicorn
+# directly call the factory function.
+# We will no longer assign `app = create_app(...)` at the global scope directly.
+# Instead, the Gunicorn startup command will be adjusted to call this function.
 
-# --- Local Development Entry Point (Not used by Gunicorn in Azure) ---
+# The 'app' variable is still used here for local development,
+# but in Azure, Gunicorn will use the specific startup command.
+# For local debugging, we still need a global 'app' object if __name__ == '__main__' runs.
+# However, for deployment, Gunicorn will directly use 'app:create_app()'.
+
+# We'll define a variable that Gunicorn can "find" which is actually the result
+# of calling create_app. This is a common pattern when the factory requires
+# configuration at runtime.
+# Here, 'application' is a common alternative name for the WSGI callable.
+# We set this up to call create_app with the appropriate environment.
+# Gunicorn can then be instructed to look for 'application'.
+config_name_for_deploy = os.environ.get('FLASK_ENV', 'production')
+
+try:
+    application = create_app(config_name_for_deploy)
+except Exception as e:
+    logging.error(f"Failed to create application instance for deployment with config '{config_name_for_deploy}': {e}")
+    raise # Re-raise to ensure deployment failure is properly reported
+
+# --- Local Development Entry Point ---
 # This block is primarily for running the Flask app locally using 'python app.py'.
-# In Azure App Service, Gunicorn (with the 'app:app' command) directly calls
-# the 'app' object instantiated above, so this block is not executed in that context.
+# It uses the `application` object created above.
 if __name__ == '__main__':
-    # Azure App Service sets a 'PORT' environment variable.
-    # We use 5000 as a default for local development.
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=False)
+    # In local development, 'app' is often still used, but here we're using
+    # the 'application' object created for Gunicorn's use.
+    # If you prefer 'app' for local, you can add 'app = application' here.
+    application.run(host='0.0.0.0', port=port, debug=True) # Changed to `debug=True` for local
